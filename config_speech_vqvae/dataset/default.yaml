@@ -1,0 +1,10 @@
+# @package _group_
+
+parameters:
+  root: 'D:\These\data\Audio-Visual\voxceleb\train'
+  resize: 128
+
+spec_parameters:
+  n_fft: 1024
+  win_length: 64e-3
+  hop: 0.625

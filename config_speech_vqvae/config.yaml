@@ -1,0 +1,12 @@
+defaults:
+  - dataset: default
+  - model: default
+
+
+train:
+  batch_size: 1024
+  lr: 1e-3
+  device: 'cuda'
+  epochs: 20
+  num_workers: 0
+  is_divergence: true

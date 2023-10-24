@@ -1,0 +1,11 @@
+# @package _group_
+seq_length: 320
+dim_indices: 40
+emb_dim: 8
+encoder_layer: 6
+encoder_head: 4
+decoder_layer: 4
+decoder_head: 4
+mask_ratio: 0.50
+num_embeddings: 256
+dim_tokkens: 256

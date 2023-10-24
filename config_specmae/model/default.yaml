@@ -1,0 +1,10 @@
+# @package _group_
+seq_length: 380
+dim_input: 270
+dim_output: 270
+emb_dim: 320
+encoder_layer: 6
+encoder_head: 4
+decoder_layer: 4
+decoder_head: 4
+mask_ratio: 0.70
