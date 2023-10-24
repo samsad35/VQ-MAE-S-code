@@ -14,16 +14,11 @@ outputs/**
 *.png
 vqmae/vqmae/gradio/**
 vqmae/vqmae/plots/**
-vqmae/vqmae/data/finetuning/emovo.py
-vqmae/vqmae/data/finetuning/emodb.py
-vqmae/vqmae/data/finetuning/iemocap.py
-vqmae/vqmae/data/finetuning/mead.py
-vqmae/vqmae/data/finetuning/savee.py
+vqmae/vqmae/data/finetuning/**
 test_gradio.py
 pretrain_classifier.py
 site_qualitative.py
 site_qualitative - Spec-MAE.py
 pretrain_SpecMAE.py
-.gitignore
 
 
