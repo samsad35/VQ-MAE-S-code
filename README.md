@@ -6,7 +6,7 @@
 [![PyPI version fury.io](https://badge.fury.io/py/ansicolortags.svg)](https://test.pypi.org/project/)
 
 
-![image](images/overview.svg)
+![image](images/overview_.svg)
 
 
 ## Abstract
@@ -32,12 +32,14 @@ Recent years have seen remarkable progress in speech emotion recognition (SER), 
 
 ## Usage
 * To do:
-  * [x] Pre-train Speech VQ-VAE
-  * [X] Pre-train VQ-MAE-Speech
-  * [X] Fine-tuning and classification
-### Pre-train Speech VQ-VAE
+  * [x] Training Speech VQ-VAE
+  * [X] Training VQ-MAE-Speech
+  * [X] Fine-tuning and classification for emotion recognition
+### 1) Training Speech VQ-VAE
+  
+
 ```python
-from rSMAE import SpeechVQVAE, Speech_VQVAE_Train, VoxcelebSequential
+from vqmae import SpeechVQVAE, Speech_VQVAE_Train, VoxcelebSequential
 import hydra
 from omegaconf import DictConfig
 import os
@@ -47,8 +49,8 @@ import os
 def main(cfg: DictConfig):
     os.chdir(hydra.utils.get_original_cwd())
     """ Data """
-    data_train = VoxcelebSequential(root=r"D:\These\data\Audio-Visual\voxceleb\test\video",
-                                    h5_path=r"E:\H5\modality_spectrogram_test.hdf5",
+    data_train = VoxcelebSequential(root=r"Path-to-data",
+                                    h5_path=r"Path-to-H5",
                                     frames_per_clip=200,
                                     train=True
                                     )
@@ -66,57 +68,60 @@ def main(cfg: DictConfig):
 if __name__ == '__main__':
     main()
 
+
 ```
 - You can download our pre-trained speech VQ-VAE [following link]().
-### Pre-train VQ-MAE-Speech
+- 
+### 2) Training VQ-MAE-Speech
 ```python
-from rSMAE import MAE, MAE_Train, SpeechVQVAE, VoxcelebSequential
+from vqmae import MAE, MAE_Train, SpeechVQVAE, VoxcelebSequential
 import hydra
 from omegaconf import DictConfig
 import os
 
 
-@hydra.main(config_path="config_mae", config_name="config")  # You change the hyperparameter of VQ-MAE-Speech in the config-mae
+@hydra.main(config_path="config_mae", config_name="config")
 def main(cfg: DictConfig):
     os.chdir(hydra.utils.get_original_cwd())
     """ Data """
-    data_train = VoxcelebSequential(root=r"path_voxceleb_train",
-                                    h5_path=r"path_hdf5_train",  # for speed up training
-                                    frames_per_clip=200,  #  sequence max 
+    data_train = VoxcelebSequential(root=r"Path-to-voxceleb2-train",
+                                    h5_path=r"path-to-h5-train",
+                                    frames_per_clip=200,
                                     train=True
                                     )
 
-    data_validation = VoxcelebSequential(root=r"path_voxceleb_validation",
-                                         h5_path=r"path_hdf5_validation",  # for speed up training
+    data_validation = VoxcelebSequential(root=r"Path-to-voxceleb2-validation",
+                                         h5_path=r"path-to-h5-validation",
                                          frames_per_clip=200
                                          )
     """ VQVAE """
-    vqvae = SpeechVQVAE(**cfg.vqvae)  
+    vqvae = SpeechVQVAE(**cfg.vqvae)
     vqvae.load(path_model=r"checkpoint/SPEECH_VQVAE/2022-12-27/21-42/model_checkpoint")
 
     """ MAE """
     mae = MAE(**cfg.model,
               vqvae_embedding=None,
-              masking="random",  # ["random", "horizontal", "vertical"]
-              trainable_position=True)  
+              masking="random",
+              trainable_position=True)  # ["random", "horizontal", "vertical", "mosaic"]
 
     """ Training """
     description = dict(encoder_depth=6, decoder_depth=4, ratio=0.50, masking="random", trainable_position=True)
-
     pretrain_vqvae = MAE_Train(mae,
                                vqvae,
                                data_train,
                                data_validation,
                                config_training=cfg.train,
-                               tube_bool=True,  # if true: patch-based masking, if false: frame-based masking
-                               follow=True,  # For tracking 
-                               description=description)  # Add additional information about the train
-    # pretrain_vqvae.load(path="path/model_checkpoint")  # If you would to continue the training
+                               tube_bool=True,
+                               follow=True,
+                               multigpu_bool=True,
+                               description=description)
+    # pretrain_vqvae.load(path="checkpoint/RSMAE/2023-2-1/11-4/model_checkpoint")
     pretrain_vqvae.fit()
 
 
 if __name__ == '__main__':
     main()
+
 ```
 
 
@@ -129,6 +134,9 @@ if __name__ == '__main__':
 | Model         	| Encoder depth    	| 
 |---------------	|---------------------	|
 | VQ-MAE-Speech 	| [6]() - [12]() - [16]() - [20]() 	|
+
+### 3) Fine tuning and classification
+Follow the file "[classifier.py]()".
 
 ```
 

@@ -37,6 +37,7 @@ def main(cfg: DictConfig):
                                config_training=cfg.train,
                                tube_bool=True,
                                follow=True,
+                               multigpu_bool=True,
                                description=description)
     # pretrain_vqvae.load(path="checkpoint/RSMAE/2023-2-1/11-4/model_checkpoint")
     pretrain_vqvae.fit()

@@ -12,7 +12,6 @@ outputs/**
 *.xml
 *.mp4
 *.png
-*.svg
 vqmae/vqmae/gradio/**
 vqmae/vqmae/plots/**
 vqmae/vqmae/data/finetuning/emovo.py

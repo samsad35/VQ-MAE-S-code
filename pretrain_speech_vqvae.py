@@ -1,4 +1,4 @@
-from rSMAE import SpeechVQVAE, Speech_VQVAE_Train, VoxcelebSequential
+from vqmae import SpeechVQVAE, Speech_VQVAE_Train, VoxcelebSequential
 import hydra
 from omegaconf import DictConfig
 import os
