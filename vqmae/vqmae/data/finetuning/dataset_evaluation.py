@@ -39,7 +39,7 @@ class EvaluationDataset(Dataset):
         if speaker_retain_test is not None:
             self.speaker_retain_test = speaker_retain_test
             self.train = train
-            self.table_()
+            self.speaker_independent()
         # print(self.table["emotion"].value_counts())
         print(f"\t --> Evaluation of {dataset.upper()} | train: {train} | length: {len(self.table)}")
         # -----
@@ -54,7 +54,7 @@ class EvaluationDataset(Dataset):
                                     hop=hop,
                                     win_length=win_length)
 
-    def table_(self):
+    def speaker_independent(self):
         if not self.train:
             self.table = self.table.loc[self.table['id'].isin(self.speaker_retain_test)].reset_index(drop=True)
         else:

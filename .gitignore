@@ -24,4 +24,6 @@ pretrain_classifier.py
 site_qualitative.py
 site_qualitative - Spec-MAE.py
 pretrain_SpecMAE.py
+.gitignore
+
 

@@ -12,7 +12,7 @@
 ## Abstract
 <center>
 
-[qualitative results](https://samsad35.github.io/VQ-MAE-Speech/#:~:text=as%20input%20representations.-,Qualitative%20Results,-Back) |  [paper](https://samsad35.github.io/VQ-MAE-Speech/)
+[Qualitative results](https://samsad35.github.io/VQ-MAE-Speech/#:~:text=as%20input%20representations.-,Qualitative%20Results,-Back) |  [Paper](https://samsad35.github.io/VQ-MAE-Speech/)
 
 </center>
 
@@ -35,8 +35,8 @@ Recent years have seen remarkable progress in speech emotion recognition (SER), 
   * [x] Training Speech VQ-VAE
   * [X] Training VQ-MAE-Speech
   * [X] Fine-tuning and classification for emotion recognition
-### 1) Training Speech VQ-VAE
-  
+  * 
+### 1) Training Speech VQ-VAE in unsupervised learning
 
 ```python
 from vqmae import SpeechVQVAE, Speech_VQVAE_Train, VoxcelebSequential
@@ -71,8 +71,8 @@ if __name__ == '__main__':
 
 ```
 - You can download our pre-trained speech VQ-VAE [following link]().
-- 
-### 2) Training VQ-MAE-Speech
+
+### 2) Training VQ-MAE-Speech in self-supervised learning
 ```python
 from vqmae import MAE, MAE_Train, SpeechVQVAE, VoxcelebSequential
 import hydra
@@ -135,8 +135,10 @@ if __name__ == '__main__':
 |---------------	|---------------------	|
 | VQ-MAE-Speech 	| [6]() - [12]() - [16]() - [20]() 	|
 
-### 3) Fine tuning and classification
-Follow the file "[classifier.py]()".
+### 3) Fine-tuning and classification for emotion recognition
+
+- (cross-validation | Speaker independent) Follow the file "[classification_speaker_independent.py]()".
+- (80%/20% | Speaker dependent) Follow the file "[classification_speaker_dependent.py]()".
 
 ```
 
