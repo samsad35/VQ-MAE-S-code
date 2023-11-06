@@ -10,7 +10,7 @@ def main(cfg: DictConfig):
     """ Data """
     data_train = VoxcelebSequential(root=r"D:\These\data\Audio-Visual\voxceleb\test\video",
                                     h5_path=r"E:\H5\modality_spectrogram_test.hdf5",
-                                    frames_per_clip=200,
+                                    frames_per_clip=1,
                                     train=True
                                     )
 
