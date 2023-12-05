@@ -81,6 +81,8 @@ if __name__ == '__main__':
 ### 2) Training VQ-MAE-Speech in self-supervised learning
 ![VQ-MAE](images/step-2.svg)
 
+<img src="https://github.com/samsad35/VQ-MAE-S-code/tree/main/images/step-2.svg" width="128"/>
+
 * Import model class (MAE and SpeechVQVAE), learning data (VoxcelebSequential) and training data (MAE_Train)
 * "config_mae" directory contains all model and training parameters of VQ-MAE.
 
