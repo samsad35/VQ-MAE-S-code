@@ -14,7 +14,7 @@ If you use this code for your research, please cite the above paper.
 
 Useful links:
 - [Abstract](https://arxiv.org/abs/2304.11117)
-- [Paper](https://arxiv.org/abs/2304.11117)
+- [Paper](https://ieeexplore.ieee.org/document/10193151)
 - [Demo website with qualitative results](https://samsad35.github.io/VQ-MAE-Speech/)
 
 ## Setup 
