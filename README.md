@@ -76,7 +76,7 @@ if __name__ == '__main__':
 * **vqvae**: The model must be initialized with the parameters in "config_vqvae".
 * **train_vqvae**: Initiate the training class with model, data and parameters in "config_vqvae", then launch it with .fit().
 
-- You can download our pre-trained speech VQ-VAE [following link]().
+- You can download our pre-trained speech VQ-VAE [following link]() (released soon).
 
 ### 2) Training VQ-MAE-Speech in self-supervised learning
 ![VQ-MAE](images/step-2.svg)
