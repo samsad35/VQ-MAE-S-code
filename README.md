@@ -7,7 +7,6 @@
 [comment]: <> ([![PyPI version fury.io]&#40;https://badge.fury.io/py/ansicolortags.svg&#41;]&#40;https://test.pypi.org/project/&#41;)
 
 
-## Abstract
 This repository contains the code associated with the following publication:
 > **A vector quantized masked autoencoder for speech emotion recognition**<br> Samir Sadok, Simon Leglaive, Renaud Séguier<br>IEEE ICASSP 2023 Workshop on Self-Supervision in Audio, Speech and Beyond (SASB).
 
