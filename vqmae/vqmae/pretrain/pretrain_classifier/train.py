@@ -3,6 +3,7 @@ import torch
 from tqdm import tqdm
 from ...base import Train
 from ...data import EvaluationDataset
+from torch.utils.data import Dataset
 from ...model import MAE, Classifier, SpeechVQVAE, Query2Label
 import matplotlib.pyplot as plt
 from .follow_up_classifier import Follow
@@ -19,8 +20,8 @@ from sklearn.metrics import f1_score
 class Classifier_Train(Train):
     def __init__(self, mae: MAE,
                  vqvae: SpeechVQVAE,
-                 training_data: EvaluationDataset,
-                 test_data: EvaluationDataset,
+                 training_data: Dataset,
+                 test_data: Dataset,
                  config_training: dict = None, follow: bool = True,
                  query2emo: bool = False):
         super().__init__()

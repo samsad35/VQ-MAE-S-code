@@ -1,14 +1,17 @@
-from vqmae import MAE, SpeechVQVAE, Classifier_Train, EvaluationDataset, h5_creation, size_model
+from vqmae import MAE, SpeechVQVAE, Classifier_Train, EvaluationDatasetSpeakerDependent, h5_creation, size_model
 import hydra
 from omegaconf import DictConfig
 import os
 import numpy as np
 from sklearn.utils import shuffle
+
 # ---------------------------------------------------------------------------------------------
 root = r"D:\These\data\Audio\RAVDESS"
 dataset_name = "ravdess"
 h5_path = r"H5/ravdess.hdf5"
 mae_path = r"checkpoint/RSMAE/2023-2-22/12-45"
+
+
 # ---------------------------------------------------------------------------------------------
 
 
@@ -23,26 +26,24 @@ def main(cfg: DictConfig):
     os.chdir(hydra.utils.get_original_cwd())
     """ Data """
 
-    data_train = EvaluationDataset(root=root,
-                                   speaker_retain_test=[],
-                                   train=True,
-                                   frames_per_clip=200,
-                                   dataset=dataset_name,
-                                   h5_path=h5_path
-                                   )
+    data_train = EvaluationDatasetSpeakerDependent(root=root,
+                                                   ratio_train=80,
+                                                   train=True,
+                                                   frames_per_clip=200,
+                                                   dataset=dataset_name,
+                                                   h5_path=h5_path
+                                                   )
 
-    data_validation = EvaluationDataset(root=root,
-                                        speaker_retain_test=[],
-                                        train=False,
-                                        frames_per_clip=200,
-                                        dataset=dataset_name,
-                                        h5_path=h5_path
-                                        )
+    data_validation = EvaluationDatasetSpeakerDependent(root=root,
+                                                        train=False,
+                                                        frames_per_clip=200,
+                                                        dataset=dataset_name,
+                                                        h5_path=h5_path
+                                                        )
 
     """ VQVAE """
     vqvae = SpeechVQVAE(**cfg.vqvae)
     vqvae.load(path_model=r"checkpoint/SPEECH_VQVAE/2022-12-27/21-42/model_checkpoint")
-
 
     """ MAE """
     mae = MAE(**cfg.model, trainable_position=True)
@@ -60,8 +61,8 @@ def main(cfg: DictConfig):
     accuracy, f1 = pretrain_classifier.fit()
 
     print("-" * 50)
-    print(f"Accuracy final: {accuracy}")
-    print(f"F1 final: {f1}")
+    print(f"Final accuracy: {accuracy}")
+    print(f"Final F1: {f1}")
 
 
 if __name__ == '__main__':

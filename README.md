@@ -21,7 +21,7 @@ Useful links:
 - [ ] Pypi: (Soon) 
 
 [comment]: <> (  - ``````)
-- [x] Install the package locally (for use on your system):  
+- [ ] Install the package locally (for use on your system):  
   - In VQ-MAE-speech directoy: ```pip install -e .```
 - [x] Virtual Environment: 
   - ```conda create -n vq_mae_s python=3.8```
@@ -38,6 +38,7 @@ Useful links:
 ### 1) Training Speech VQ-VAE in unsupervised learning
 
 * Import model class (speechvqvae), learning data (VoxcelebSequential) and training data (Speech_VQVAE_Train)
+* "config_vqvae" directory contains all model and training parameters VQ-VAE-Audio.
 ```python
 from vqmae import SpeechVQVAE, Speech_VQVAE_Train, VoxcelebSequential
 import hydra
@@ -57,12 +58,11 @@ def main(cfg: DictConfig):
 
     """ Model """
     vqvae = SpeechVQVAE(**cfg.model)
-    # vqvae.load(path_model=r"checkpoint/VQVAE/2023-1-10/22-36/model_checkpoint")
 
     """ Training """
-    pretrain_vqvae = Speech_VQVAE_Train(vqvae, data_train, data_train, config_training=cfg.train)
+    train_vqvae = Speech_VQVAE_Train(vqvae, data_train, data_train, config_training=cfg.train)
     # pretrain_vqvae.load(path=r"checkpoint/VQVAE/2022-12-28/12-7/model_checkpoint")
-    pretrain_vqvae.fit()
+    train_vqvae.fit()
 
 
 if __name__ == '__main__':
@@ -71,12 +71,13 @@ if __name__ == '__main__':
 
 * **data_train**: You need to specify the path to the data as well as the path to the H5 file where the spectrograms are previously stored. 
 * **vqvae**: The model must be initialized with the parameters in "config_vqvae".
-* **pretrain_vqvae**: Initiate the training class with model, data and parameters in "config_vqvae", then launch it with .fit().
+* **train_vqvae**: Initiate the training class with model, data and parameters in "config_vqvae", then launch it with .fit().
 
 - You can download our pre-trained speech VQ-VAE [following link]().
 
 ### 2) Training VQ-MAE-Speech in self-supervised learning
 * Import model class (MAE and SpeechVQVAE), learning data (VoxcelebSequential) and training data (MAE_Train)
+* "config_mae" directory contains all model and training parameters of VQ-MAE.
 
 ```python
 from vqmae import MAE, MAE_Train, SpeechVQVAE, VoxcelebSequential
@@ -138,7 +139,7 @@ if __name__ == '__main__':
 ```
 
 
-## Pretrained models
+## Pretrained models (released soon)
 | Model         	| Masking strategy    	| Masking ratio (%)                	|
 |---------------	|---------------------	|------------------------	|
 | VQ-MAE-Speech 	| Patch-based masking 	| [50]() - [60]() - [70]() - [80]() - [90]() 	|
@@ -148,7 +149,7 @@ if __name__ == '__main__':
 |---------------	|---------------------	|
 | VQ-MAE-Speech 	| [6]() - [12]() - [16]() - [20]() 	|
 
-### 3) Fine-tuning and classification for emotion recognition
+### 3) Fine-tuning and classification for emotion recognition task
 
 - (cross-validation | Speaker independent) Follow the file "[classification_speaker_independent.py]()".
 - (80%/20% | Speaker dependent) Follow the file "[classification_speaker_dependent.py]()".

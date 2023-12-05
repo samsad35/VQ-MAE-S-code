@@ -1,1 +1,2 @@
 from .dataset_evaluation import EvaluationDataset
+from .dataset_evaluation_speaker_dependent import EvaluationDatasetSpeakerDependent

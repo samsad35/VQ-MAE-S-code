@@ -75,8 +75,8 @@ def main(cfg: DictConfig):
         f1_epoch.append(f1)
 
         print("-" * 50)
-    print(f"Accuracy final: {np.mean(accuracy_epoch)}")
-    print(f"F1 final: {np.mean(f1_epoch)}")
+    print(f"Final accuracy score: {np.mean(accuracy_epoch)}")
+    print(f"Final F1 score: {np.mean(f1_epoch)}")
 
 
 if __name__ == '__main__':
