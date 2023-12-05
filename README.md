@@ -1,5 +1,5 @@
 
-# A Vector Quantized Masked AutoEncoder for speech emotion recognition
+# A vector quantized masked autoencoder for speech emotion recognition
 [![Generic badge](https://img.shields.io/badge/<STATUS>-<in_progress>-<COLOR>.svg)](https://github.com/samsad35/VQ-MAE-Speech-code)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://samsad35.github.io/VQ-MAE-Speech/)
