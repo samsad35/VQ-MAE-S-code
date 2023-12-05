@@ -158,7 +158,7 @@ if __name__ == '__main__':
 ### 3) Fine-tuning and classification for emotion recognition task
 
 - (cross-validation | Speaker independent) Follow the file "[classification_speaker_independent.py](classification_speaker_independent.py)".
-- (80%/20% | Speaker dependent) Follow the file "[classification_speaker_dependent.py](classification_speaker_independent.py)".
+- (80%/20% | Speaker dependent) Follow the file "[classification_speaker_dependent.py](classification_speaker_dependent.py)".
 
 ```
 
