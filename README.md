@@ -40,7 +40,7 @@ Useful links:
 ![VQ-VAE](images/step-1.svg)
 
 
-* Import model class (speechvqvae), learning data (VoxcelebSequential) and training data (Speech_VQVAE_Train)
+* Import model class (SpeechVQVAE), learning data (VoxcelebSequential) and training data (Speech_VQVAE_Train)
 * "config_vqvae" directory contains all model and training parameters VQ-VAE-Audio.
 ```python
 from vqmae import SpeechVQVAE, Speech_VQVAE_Train, VoxcelebSequential

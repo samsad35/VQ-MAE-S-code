@@ -2,23 +2,13 @@ from vqmae import MAE, SpeechVQVAE, Classifier_Train, EvaluationDatasetSpeakerDe
 import hydra
 from omegaconf import DictConfig
 import os
-import numpy as np
-from sklearn.utils import shuffle
 
 # ---------------------------------------------------------------------------------------------
 root = r"D:\These\data\Audio\RAVDESS"
 dataset_name = "ravdess"
 h5_path = r"H5/ravdess.hdf5"
 mae_path = r"checkpoint/RSMAE/2023-2-22/12-45"
-
-
 # ---------------------------------------------------------------------------------------------
-
-
-def fold_creation(list_id, num_fold, k=5):
-    length = len(list_id)
-    size_fold = length // k
-    return list_id[size_fold * num_fold:size_fold * num_fold + size_fold]
 
 
 @hydra.main(config_path=f"{mae_path}/config_mae", config_name="config")
@@ -36,6 +26,7 @@ def main(cfg: DictConfig):
 
     data_validation = EvaluationDatasetSpeakerDependent(root=root,
                                                         train=False,
+                                                        ratio_train=80,
                                                         frames_per_clip=200,
                                                         dataset=dataset_name,
                                                         h5_path=h5_path
