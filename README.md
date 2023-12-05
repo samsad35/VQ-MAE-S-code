@@ -37,6 +37,9 @@ Useful links:
 
 ### 1) Training Speech VQ-VAE in unsupervised learning
 
+![VQ-VAE](images/step-1.svg)
+
+
 * Import model class (speechvqvae), learning data (VoxcelebSequential) and training data (Speech_VQVAE_Train)
 * "config_vqvae" directory contains all model and training parameters VQ-VAE-Audio.
 ```python
@@ -76,6 +79,8 @@ if __name__ == '__main__':
 - You can download our pre-trained speech VQ-VAE [following link]().
 
 ### 2) Training VQ-MAE-Speech in self-supervised learning
+![VQ-MAE](images/step-2.svg)
+
 * Import model class (MAE and SpeechVQVAE), learning data (VoxcelebSequential) and training data (MAE_Train)
 * "config_mae" directory contains all model and training parameters of VQ-MAE.
 
