@@ -3,7 +3,8 @@
 [![Generic badge](https://img.shields.io/badge/<STATUS>-<in_progress>-<COLOR>.svg)](https://github.com/samsad35/VQ-MAE-Speech-code)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://samsad35.github.io/VQ-MAE-Speech/)
-[![PyPI version fury.io](https://badge.fury.io/py/ansicolortags.svg)](https://test.pypi.org/project/)
+
+[comment]: <> ([![PyPI version fury.io]&#40;https://badge.fury.io/py/ansicolortags.svg&#41;]&#40;https://test.pypi.org/project/&#41;)
 
 
 ## Abstract
@@ -91,7 +92,7 @@ from omegaconf import DictConfig
 import os
 ```
 
-* Initialize the training and validation data by specifying the respective path, as well as the path to H5 where the pre-processed data (audio -> spectrogram -> VQVAE -> discrete representation) is pre-calculated.
+* Initialize the training and validation data by specifying the respective path, as well as the path to H5 where the pre-processed data (audio -> spectrogram -> VQ-VAE-Audio encoder -> discrete representation) is pre-calculated.
 ```python
 @hydra.main(config_path="config_mae", config_name="config")
 def main(cfg: DictConfig):
@@ -156,8 +157,8 @@ if __name__ == '__main__':
 
 ### 3) Fine-tuning and classification for emotion recognition task
 
-- (cross-validation | Speaker independent) Follow the file "[classification_speaker_independent.py]()".
-- (80%/20% | Speaker dependent) Follow the file "[classification_speaker_dependent.py]()".
+- (cross-validation | Speaker independent) Follow the file "[classification_speaker_independent.py](classification_speaker_independent.py)".
+- (80%/20% | Speaker dependent) Follow the file "[classification_speaker_dependent.py](classification_speaker_independent.py)".
 
 ```
 
