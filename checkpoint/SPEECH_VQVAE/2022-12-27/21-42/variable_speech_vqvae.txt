@@ -1,0 +1,57 @@
+{'training': True, '_parameters': OrderedDict(), '_buffers': OrderedDict(), '_non_persistent_buffers_set': set(), '_backward_hooks': OrderedDict(), '_is_full_backward_hook': None, '_forward_hooks': OrderedDict(), '_forward_pre_hooks': OrderedDict(), '_state_dict_hooks': OrderedDict(), '_load_state_dict_pre_hooks': OrderedDict(), '_modules': OrderedDict([('_encoder', Encoder(
+  (_conv_1): Conv1d(1, 16, kernel_size=(4,), stride=(2,), padding=(1,))
+  (norm1): BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (_conv_2): Conv1d(16, 32, kernel_size=(4,), stride=(2,), padding=(1,))
+  (norm2): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (_conv_3): Conv1d(32, 32, kernel_size=(3,), stride=(2,), padding=(1,))
+  (norm3): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (_residual_stack): ResidualStack(
+    (_layers): ModuleList(
+      (0): Residual(
+        (_block): Sequential(
+          (0): Tanh()
+          (1): Conv1d(32, 32, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+          (2): Tanh()
+          (3): Conv1d(32, 32, kernel_size=(1,), stride=(1,), bias=False)
+        )
+      )
+      (1): Residual(
+        (_block): Sequential(
+          (0): Tanh()
+          (1): Conv1d(32, 32, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+          (2): Tanh()
+          (3): Conv1d(32, 32, kernel_size=(1,), stride=(1,), bias=False)
+        )
+      )
+    )
+  )
+)), ('_pre_vq_conv', Conv1d(32, 8, kernel_size=(1,), stride=(1,))), ('_vq_vae', VectorQuantizerEMA(
+  (_embedding): Embedding(256, 8)
+)), ('_decoder', Decoder(
+  (_conv_1): Conv1d(8, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+  (_residual_stack): ResidualStack(
+    (_layers): ModuleList(
+      (0): Residual(
+        (_block): Sequential(
+          (0): Tanh()
+          (1): Conv1d(32, 32, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+          (2): Tanh()
+          (3): Conv1d(32, 32, kernel_size=(1,), stride=(1,), bias=False)
+        )
+      )
+      (1): Residual(
+        (_block): Sequential(
+          (0): Tanh()
+          (1): Conv1d(32, 32, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+          (2): Tanh()
+          (3): Conv1d(32, 32, kernel_size=(1,), stride=(1,), bias=False)
+        )
+      )
+    )
+  )
+  (_conv_trans_1): ConvTranspose1d(32, 32, kernel_size=(4,), stride=(2,), padding=(1,))
+  (norm1_dec): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (_conv_trans_2_bis): ConvTranspose1d(32, 16, kernel_size=(4,), stride=(2,), padding=(1,))
+  (norm2_dec): BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (_conv_trans_2): ConvTranspose1d(16, 1, kernel_size=(3,), stride=(2,))
+))])}

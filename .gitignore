@@ -1,4 +1,6 @@
-checkpoint/**
+checkpoint/CLASSIFIER/**
+checkpoint/RSMAE/**
+checkpoint/SPECMAE/**
 temps/**
 H5/**
 flagged/**

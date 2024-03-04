@@ -76,7 +76,10 @@ if __name__ == '__main__':
 * **vqvae**: The model must be initialized with the parameters in "config_vqvae".
 * **train_vqvae**: Initiate the training class with model, data and parameters in "config_vqvae", then launch it with .fit().
 
-- You can download our pre-trained speech VQ-VAE [following link]() (released soon).
+- You can download our pre-trained speech VQ-VAE [following link](checkpoint/SPEECH_VQVAE).
+```python
+vqvae.load(path_model=r"checkpoint/SPEECH_VQVAE/2022-12-27/21-42/model_checkpoint")
+```
 
 ### 2) Training VQ-MAE-Speech in self-supervised learning
 ![VQ-MAE](images/step-2.svg)
@@ -147,12 +150,12 @@ if __name__ == '__main__':
 ## Pretrained models (released soon)
 | Model         	| Masking strategy    	| Masking ratio (%)                	|
 |---------------	|---------------------	|------------------------	|
-| VQ-MAE-Speech 	| Patch-based masking 	| [50]() - [60]() - [70]() - [80]() - [90]() 	|
-| VQ-MAE-Speech 	| Frame-based masking 	| [50]() - [60]() - [70]() - [80]() - [90]() 	|
+| VQ-MAE-Speech 	| Patch-based masking 	| [50] - [60] - [70] - [80] - [90] 	|
+| VQ-MAE-Speech 	| Frame-based masking 	| [50] - [60](https://huggingface.co/samir-sadok/vq-mae-s-patch-mask-60) - [70](https://huggingface.co/samir-sadok/vq-mae-s-patch-mask-70) - [80](https://huggingface.co/samir-sadok/vq-mae-s-patch-mask-80) - [90](https://huggingface.co/samir-sadok/vq-mae-s-patch-mask-90) 	|
 
 | Model         	| Encoder depth    	| 
 |---------------	|---------------------	|
-| VQ-MAE-Speech 	| [6]() - [12]() - [16]() - [20]() 	|
+| VQ-MAE-Speech 	| [6] - [12] - [16] - [20] 	|
 
 ### 3) Fine-tuning and classification for emotion recognition task
 
