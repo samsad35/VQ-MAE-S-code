@@ -150,7 +150,7 @@ if __name__ == '__main__':
 ## Pretrained models (released soon)
 | Model         	| Masking strategy    	| Masking ratio (%)                	|
 |---------------	|---------------------	|------------------------	|
-| VQ-MAE-Speech 	| Patch-based masking 	| [50] - [60] - [70] - [80] - [90] 	|
+| VQ-MAE-Speech 	| Patch-based masking 	| [50] - [60] - [70] - [80](https://huggingface.co/samir-sadok/vq-mae-s-frame-mask-80) - [90] 	|
 | VQ-MAE-Speech 	| Frame-based masking 	| [50] - [60](https://huggingface.co/samir-sadok/vq-mae-s-patch-mask-60) - [70](https://huggingface.co/samir-sadok/vq-mae-s-patch-mask-70) - [80](https://huggingface.co/samir-sadok/vq-mae-s-patch-mask-80) - [90](https://huggingface.co/samir-sadok/vq-mae-s-patch-mask-90) 	|
 
 | Model         	| Encoder depth    	| 
